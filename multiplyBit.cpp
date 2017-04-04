@@ -30,8 +30,15 @@ return s;
 }
 
 int main(){
+
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+
     long a,b;
+
+    freopen("in.txt","r",stdin);
     cin>>a>>b;
-    cout<<mul(a,b)<<endl;    
+    cout<<mul(a,b)<<endl; 
+    freopen("out.txt","w",stdout);   
     return 0;
 }
