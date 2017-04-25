@@ -12,7 +12,7 @@ long sum(long a,long b){
         tempA >>= 1 ;
         tempB >>= 1 ;
     }
-    return su|carryin;
+    return su|carryin;x
 }
 
 
