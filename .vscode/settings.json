@@ -20,6 +20,10 @@
         "thread": "cpp",
         "regex": "cpp",
         "tuple": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "random": "cpp",
+        "queue": "cpp",
+        "chrono": "cpp",
+        "algorithm": "cpp"
     }
 }
