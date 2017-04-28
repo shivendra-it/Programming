@@ -131,50 +131,39 @@ void levelOrder1(Node* root){
 }
 
 void  printSpiral1(Node* root){
-    if(root == NULL)
-        return;
+  if(root == NULL){
+      return;
+  }
 
-    list< Node* > Q;
-    Node* temp;
+    list<Node*> deque;
+    deque.push_front(root);
     bool flag = true;
-    Q.push_back(root);
-    while(!Q.empty()){
-        int s = Q.size();
+    while(!deque.empty()){
+        int s = deque.size();
         if(flag){
-
- while(s--){
-            temp = Q.front();
+            while(s--){
+            Node* temp = deque.front();
             printf("%d ",temp->val);
-
-             Q.pop_front();
-
-            if(temp->right)
-            Q.push_front(temp->right);
-            flag = !flag;
+            deque.pop_front();
             if(temp->left)
-            Q.push_front(temp->left);
-            
-        }
-        flag = !flag;
-
-
+                deque.push_back(temp->left);
+            if(temp->right)
+                deque.push_back(temp->right);
+            }
+            flag = false;
         }else{
-
-while(s--){
-            temp = Q.front();
-            printf("%d ",temp->val);
-
-            Q.pop_back();
+            while(s--){
+             Node* temp = deque.back();
+             printf("%d ",temp->val);
+            deque.pop_back();
             if(temp->left)
-            Q.push_back(temp->left);
+                deque.push_front(temp->left);
             if(temp->right)
-            Q.push_back(temp->right);
-            
-}
-flag = !flag;
-
+                deque.push_front(temp->right);
+            }
+            flag = true;
         }
-           }
+    }
     return;
 }
 
@@ -218,6 +207,9 @@ int main(){
     cout<<"\n";
     printSpiral1(root1);
     cout<<"\n";
+
+
+
     if(isIdenticalItr(root1,root2)){
         cout<<"Identical"<<endl;
     }else{
