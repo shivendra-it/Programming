@@ -23,6 +23,38 @@ int add(int a, int b){
 }
 
 
+##### read one line
+
+getline()
+
+```C++
+string a;
+getline(cin, a);
+cout << a << endl;
+```
+
+Input
+
+```
+Hello World!!!
+```
+
+Output
+
+```
+Hello World!!!
+
+##### Convert to char array
+
+string cppstr = "this is a string";
+char target[1024];
+strcpy(target, cppstr.c_str());
+
+
+
+
+
+
 // Heap
 
 // A C++ program to demonstrate common Binary Heap Operations
