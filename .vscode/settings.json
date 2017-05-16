@@ -27,6 +27,7 @@
         "algorithm": "cpp",
         "scoped_allocator": "cpp",
         "bitset": "cpp",
-        "initializer_list": "cpp"
+        "initializer_list": "cpp",
+        "limits": "cpp"
     }
 }

@@ -6,7 +6,7 @@ int noofBST(int n){
     arr[1]=1;
 
     for(int i=2;i<=n;i++){
-
+        arr[i] = arr[]
     }
 
 return 0;
