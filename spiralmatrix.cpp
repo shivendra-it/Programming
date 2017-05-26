@@ -41,7 +41,6 @@ vector<int> spiralOrder(const vector<vector<int> > &A) {
     }
 
 
-
 	return result;
     // Do not write main() function.
     // Do not read input, instead use the arguments to the function.
@@ -51,11 +50,23 @@ vector<int> spiralOrder(const vector<vector<int> > &A) {
 
 
 int main(){
-vector<vector<int> > A;
+
+
+vector<vector<int> > A(3);
 A[0].push_back(1);
 A[0].push_back(2);
 A[0].push_back(3);
 A[0].push_back(4);
+A[1].push_back(5);
+A[1].push_back(6);
+A[1].push_back(7);
+A[1].push_back(8);
+A[2].push_back(9);
+A[2].push_back(10);
+A[2].push_back(11);
+A[2].push_back(12);
+
+
 vector<int> s = spiralOrder(A);
 for(int i=0;i<s.size();i++){
 	cout<<s[i]<<" ";
