@@ -6,37 +6,30 @@ import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.Scanner;
 
-class Solution {
+class PackageProblem {
 
- int values[];
- float weights[];
- int N;
- int W;
- int matrix[][];
- int keep[][];
+    int values[];
+    float weights[];
+    int N;
+    int W;
+    int matrix[][];
+    int keep[][];
  void Initialize(int N,int W)
  {
-this.N=N;
-this.W=W;
-values = new int[N+1];
-weights = new float[N+1];
-
-     matrix=new int[N+1][W+1];
+    this.N=N;
+    this.W=W;
+    values = new int[N+1];
+    weights = new float[N+1];
+    matrix=new int[N+1][W+1];
  	keep= new int[N+1][W+1];
  	for(int w=0;w<=W;w++)
-{
-matrix[0][w]=0;
-}
+        matrix[0][w]=0;
  }
  void Knapsack_Modified()
  {
-for(int i=1;i<=N;i++)
- 	{
- 	for(int w=0;w<=W;w++)
- 	{
- 	if(weights[i]<=w  )
- 	{
- 	
+    for(int i=1;i<=N;i++){
+ 	for(int w=0;w<=W;w++){
+ 	if(weights[i]<=w ){
  	int ww= (int) Math.floor(weights[i]);
  	matrix[i][w]=Math.max(values[i]+matrix[i-1][(w-ww)],matrix[i-1][w]);
  	if(values[i]+matrix[i-1][(w-ww)]>matrix[i-1][w])
@@ -79,7 +72,7 @@ int check=0;
  }
     public static void main(String args[] ) throws Exception {
         
-    BufferedReader br = new BufferedReader(new FileReader("D:/EclipseWS/input.txt"));
+    BufferedReader br = new BufferedReader(new FileReader("/home/shiv/Programming/Java/input.txt"));
     //81 : (1,53.38,$45) (2,88.62,$98) (3,78.48,$3) (4,72.30,$76) (5,30.18,$9) (6,46.34,$48)
     
     String line = br.readLine();
@@ -90,7 +83,7 @@ int check=0;
         
             int W=Integer.parseInt(table[0]);
             int N= (table.length)-2;
-            Solution s = new Solution();
+            PackageProblem s = new PackageProblem();
             s.Initialize(N, W);
             
            
