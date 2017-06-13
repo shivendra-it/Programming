@@ -1,4 +1,7 @@
 #include<bits/stdc++.h>
+
+#define DEBUG false
+#define $(x) {if (DEBUG) {cout << __LINE__ << ": "; {x} cout << endl;}}
 using namespace std;
 
 int main(){

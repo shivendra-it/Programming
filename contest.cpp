@@ -18,13 +18,16 @@ int main()
     }
     
     map<int,int> m;
-    
+    map<int,int> :: iterator mi;
 
     for(int i=0;i<n;i++){
-        if(m.find(A[i] == m.end()){
-            m[A[i]] = i;
+        mi = m.find(i);
+        if(mi == m.end()){
+            m[i] = A[i];
         }
-        m.insert()
+        else{
+             m[i]
+        }
     }
     return 0;
 }

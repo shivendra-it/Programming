@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+
 struct Node{
     int val;
     Node *left,*right;
@@ -9,7 +10,6 @@ struct Node{
 
 
 void addNode(Node *ptr,int val){
-
     if(ptr == NULL){
     Node *temp;
     temp = (Node *)malloc(sizeof(Node));

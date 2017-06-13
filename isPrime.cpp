@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+
 int isPrime(int A) {
     // Do not write main() function.
     // Do not read input, instead use the arguments to the function.
