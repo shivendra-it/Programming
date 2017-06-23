@@ -28,17 +28,18 @@ class TreeAll {
         inorder(node.right);
     }
 
-public Node parent(Node node){
-    if(root == node)
+    public Node parent(Node node) {
+        if (root == node)
+            return null;
+        if (root.left == node || root.right == node)
+            return root;
+        if (root.left != null)
+            return parent(root.left);
+        if (root.right != null)
+            return parent(root.right);
         return null;
-    if(root.left == node || root.right == node)
-        return root;
-    if(root.left != null)
-     return parent(root.left);
-    if(root.right != null)
-        return parent(root.right);
-    return null;
-}
+    }
+
     public Node inorderSuccessor(Node node) {
 
         if (node.right != null) {
@@ -51,18 +52,67 @@ public Node parent(Node node){
             return node;
         }
         Node temp = parent(node);
-        while(temp != null && temp.right == node){
+        while (temp != null && temp.right == node) {
             node = temp;
             temp = parent(node);
         }
- return temp.right;
+        return temp.right;
+    }
+
+    public void level(Node node) {
+        if (node == null)
+            return;
+        Queue<Node> q = new LinkedList<Node>();
+        q.add(node);
+        while (!q.isEmpty()) {
+            node = q.poll();
+            System.out.print(node.data + " ");
+            if (node.left != null)
+                q.add(node.left);
+            if (node.right != null)
+                q.add(node.right);
+        }
+        return;
+    }
+
+    public void spirallevel(Node node) {
+        if (node == null)
+            return;
+        Stack<Node> s1 = new Stack<Node>();
+        Stack<Node> s2 = new Stack<Node>();
+        s1.add(node);
+        while (!s1.empty() || !s2.empty()) {
+            while(!s1.empty()){
+                node = s1.pop();
+                System.out.print(node.data + " ");
+                if (node.left != null)
+                    s2.add(node.left);
+                if (node.right != null)
+                    s2.add(node.right);
+            } 
+            while(!s2.empty()) {
+                node = s2.pop();
+                System.out.print(node.data + " ");
+                if (node.right != null)
+                    s1.add(node.right);
+                if (node.left != null)
+                    s1.add(node.left);
+            }
+        }
+        return;
+    }
+
+    void spirallevel() {
+        spirallevel(root);
+    }
+
+    void level() {
+        level(root);
     }
 
     void inorder() {
         inorder(root);
     }
-
-  
 
     public static void main(String[] args) {
         TreeAll T = new TreeAll();
@@ -79,6 +129,10 @@ public Node parent(Node node){
         T.root.right.right.right = new Node(11);
         T.root.right.right.left = new Node(12);
         T.inorder();
+        System.out.println("\nlevel");
+        T.level();
+        System.out.println("\nlevel");
+        T.spirallevel();
         Node n = T.inorderSuccessor(T.root.left.left.right);
         System.out.println(n.data);
     }
