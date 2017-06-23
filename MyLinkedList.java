@@ -7,8 +7,8 @@ class Node {
     Node next;
 
     Node(int d) {
-        data = d;
-        next = null;
+        this.data = d;
+        this.next = null;
     }
 }
 
@@ -24,15 +24,18 @@ class MyLinkedList {
         Node temp = new Node(d);
         if (head == null) {
             head = temp;
+            return;
         }
+
         Node cur = head;
         while (cur.next != null) {
             cur = cur.next;
         }
+
         cur.next = temp;
     }
 
-    void Delete(int d) {
+    void Deletea(int d) {
         if (head.data == d) {
             head = head.next;
         }
@@ -58,21 +61,25 @@ class MyLinkedList {
 
     void Display() {
         Display(head);
+        System.out.println("\n");
     }
 
     public static void main(String[] args) {
         MyLinkedList mll = new MyLinkedList();
         mll.Insert(1);
-        System.out.print("sdfd");
         mll.Insert(2);
-        System.out.print("sdfd");
         mll.Insert(3);
         mll.Insert(4);
         mll.Insert(5);
         mll.Insert(6);
         mll.Insert(7);
-                
+
+        mll.Display();
+        mll.Deletea(4);
+        mll.Display();
+        mll.Deletea(7);
+        mll.Display();
+        mll.Deletea(1);
         mll.Display();
     }
-
 }

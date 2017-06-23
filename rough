@@ -1,0 +1,18 @@
+struct tree* inorder(struct tree *root)
+{
+struct tree *q;
+if(root->right)
+{
+q=root->right;
+while(q->left)
+q=q->left;
+return q;
+}
+q=root->parent;
+while(q && q->right==root)
+{
+root=q;
+q=root->parent;
+}
+return q;
+}
