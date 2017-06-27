@@ -15,9 +15,11 @@ class Node {
 class TreeAll {
 
     private Node root;
+    private Node root1;
 
     TreeAll() {
         root = null;
+        root1 = null;
     }
 
     public void inorder(Node node) {
@@ -82,15 +84,15 @@ class TreeAll {
         Stack<Node> s2 = new Stack<Node>();
         s1.add(node);
         while (!s1.empty() || !s2.empty()) {
-            while(!s1.empty()){
+            while (!s1.empty()) {
                 node = s1.pop();
                 System.out.print(node.data + " ");
                 if (node.left != null)
                     s2.add(node.left);
                 if (node.right != null)
                     s2.add(node.right);
-            } 
-            while(!s2.empty()) {
+            }
+            while (!s2.empty()) {
                 node = s2.pop();
                 System.out.print(node.data + " ");
                 if (node.right != null)
@@ -100,6 +102,36 @@ class TreeAll {
             }
         }
         return;
+    }
+
+    void Mirror(Node node) {
+        if (node == null)
+            return;
+        if (node.left != null)
+            Mirror(node.left);
+        if (node.right != null)
+            Mirror(node.right);
+        Node tmp = node.left;
+        node.left = node.right;
+        node.right = tmp;
+    }
+
+    int Depth(Node node) {
+        int ld = 0, rd = 0;
+        if (node == null)
+            return 0;
+        if (node.left != null)
+            ld = Depth(node.left);
+        if (node.right != null)
+            rd = Depth(node.right);
+        return 1 + Math.max(ld, rd);
+    }
+    int Depth() {
+        return Depth(root);
+    }
+
+    void Mirror() {
+        Mirror(root);
     }
 
     void spirallevel() {
@@ -134,6 +166,13 @@ class TreeAll {
         System.out.println("\nlevel");
         T.spirallevel();
         Node n = T.inorderSuccessor(T.root.left.left.right);
+        System.out.println("\n");
         System.out.println(n.data);
+        T.Mirror();
+        T.inorder();
+        System.out.println("\n");
+        T.Mirror();
+        T.inorder();
+        System.out.print(T.Depth());
     }
 }
