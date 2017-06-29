@@ -1,4 +1,5 @@
 import java.util.*;
+
 import java.lang.*;
 import java.io.*;
 
@@ -44,13 +45,30 @@ class IsSame {
         return false;
     }
 
-    Node InorderPredessor(Node head,Node node){
-        if(node == null)
+    Node InorderPredessor(Node head, Node node) {
+        if (node == null)
             return node;
-        if(head.data == node.data)
+        if (head.data == node.data)
             return head;
-        
-        
+            return null;
+    }
+
+    Node LowestCommonAncestor(Node node, int n1, int n2) {
+        if (node == null)
+            return null;
+        if (node.data == n1 || node.data == n2)
+            return node;
+        Node l = null, r = null;
+        if (node.left != null)
+            l = LowestCommonAncestor(node.left, n1, n2);
+        if (node.right != null)
+            r = LowestCommonAncestor(node.right, n1, n2);
+
+        if (l != null)
+            return l;
+        else
+            return r;
+
     }
 
     public static void main(String[] args) {
@@ -72,6 +90,7 @@ class IsSame {
         //isSame1(t.root1, t.root2);
         System.out.print(t.IsSame1(t.root1, t.root2));
         System.out.print(t.IsChildrenSum(t.root1));
-        System.out.println(InorderPredessor(t.root2,t.root2.right.left));
+        System.out.println(t.InorderPredessor(t.root2, t.root2.right.left));
+        System.out.println(t.LowestCommonAncestor(t.root2, 4, 7));
     }
 }
